@@ -10,7 +10,7 @@ fi
 CURRENT=$(cat "$COUNT_PATH")
 NEXT=$((CURRENT + 1))
 
-if [ NEXT -lt 100 ]; then
+if [ "$NEXT" -lt 100 ]; then
  echo "$NEXT" > "$COUNT_PATH"
  mail -s "Day $NEXT of the challenge" dimitricromarty@gmail.com < "$COUNT_PATH"
 else

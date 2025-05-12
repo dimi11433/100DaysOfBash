@@ -13,7 +13,9 @@ NEXT=$((CURRENT + 1))
 
 if [ "$NEXT" -lt 100 ]; then
  echo "$NEXT" > "$COUNT_PATH"
- /opt/homebrew/bin/msmtp  dimitricromarty@gmail.com < "$COUNT_PATH"
+ printf 'Subject: Day %s of the challenge\n\nToday is day %s of the challenge!\n' \
+     "$NEXT" "$NEXT" \
+ | /opt/homebrew/bin/msmtp  dimitricromarty@gmail.com
 else
  exit 0
 fi
